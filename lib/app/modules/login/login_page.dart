@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:paysae/app/modules/login/components/main_button.dart';
+import 'package:paysae/app/modules/login/components/main_chip.dart';
 import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -36,6 +37,12 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           MainButton(
             icon: Icon(Icons.android),
             label: 'Login com Google',
+          ),
+          MainChimp(
+            label: 'Precisando de ajuda?',
+            onTap: () {
+              print('Printou');
+            },
           ),
         ],
       ),
