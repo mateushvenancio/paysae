@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 
-class MainButton extends StatelessWidget {
+class HomeButton extends StatelessWidget {
   final Icon icon;
   final String label;
   final Function onTap;
+  final double horizontalPadding;
+  final double verticalMargin;
   final Color keyColor;
 
-  MainButton({
+  HomeButton({
     this.icon,
     this.label,
     this.onTap,
-    this.keyColor = Colors.black,
+    this.horizontalPadding,
+    this.verticalMargin,
+    this.keyColor = Colors.white,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 60),
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding ?? 60),
+      margin: EdgeInsets.symmetric(vertical: verticalMargin ?? 10),
       width: double.infinity,
       height: 45,
       child: FlatButton(
@@ -30,7 +34,7 @@ class MainButton extends StatelessWidget {
             Text(
               label ?? 'Login',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 color: this.keyColor,
               ),
             ),

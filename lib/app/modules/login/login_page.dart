@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:paysae/app/modules/login/components/main_button.dart';
-import 'package:paysae/app/modules/login/components/main_chip.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:paysae/app/modules/login/components/login_button.dart';
+import 'package:paysae/app/modules/login/components/login_text_field.dart';
 import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
-  final String title;
-  const LoginPage({Key key, this.title = "Login"}) : super(key: key);
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -17,32 +15,46 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.redAccent,
-      appBar: AppBar(
-        title: Text(widget.title),
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.5,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 70,
+        vertical: 20,
       ),
-      body: Column(
-        children: <Widget>[
-          MainButton(
-            icon: Icon(Icons.account_circle),
-            label: 'Login',
-            keyColor: Colors.white,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CircleAvatar(
+            backgroundColor: Colors.black,
+            child: Icon(
+              FontAwesomeIcons.userCircle,
+              size: 70,
+              color: Colors.white,
+            ),
+            radius: 50,
           ),
-          MainButton(
-            // icon: Icon(Icons.plus_one),
-            label: 'Registre-se',
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 25),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                LoginTextField(
+                  icon: Icon(Icons.mail),
+                  hint: 'E-mail',
+                  onChanged: (value) {},
+                ),
+                SizedBox(height: 15),
+                LoginTextField(
+                  icon: Icon(Icons.lock),
+                  hint: 'Senha',
+                  onChanged: (value) {},
+                ),
+              ],
+            ),
           ),
-          Text('Ou'),
-          MainButton(
-            icon: Icon(Icons.android),
-            label: 'Login com Google',
-          ),
-          MainChimp(
-            label: 'Precisando de ajuda?',
-            onTap: () {
-              print('Printou');
-            },
+          LoginButton(
+            label: 'Entrar',
+            onTap: () {},
           ),
         ],
       ),

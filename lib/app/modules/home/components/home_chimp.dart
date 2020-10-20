@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class MainChimp extends StatelessWidget {
+class HomeChimp extends StatelessWidget {
   final Icon icon;
   final String label;
   final Function onTap;
   final Color keyColor;
 
-  MainChimp({
+  HomeChimp({
     this.icon,
     this.label,
     this.onTap,
-    this.keyColor = Colors.black,
+    this.keyColor = Colors.white,
   });
 
   @override
@@ -26,7 +26,7 @@ class MainChimp extends StatelessWidget {
         children: [
           Icon(icon?.icon ?? Icons.info, color: keyColor),
           SizedBox(width: 20),
-          Text(label ?? ''),
+          Text(label ?? '', style: TextStyle(color: keyColor)),
         ],
       ),
     );
