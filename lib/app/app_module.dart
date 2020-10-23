@@ -2,6 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:paysae/app/app_widget.dart';
 import 'package:paysae/app/modules/home/home_module.dart';
+import 'package:paysae/stores/main_store.dart';
 
 class AppModule extends MainModule {
   @override

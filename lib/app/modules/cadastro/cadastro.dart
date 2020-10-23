@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:paysae/app/modules/cadastro/components/cadastro_button.dart';
 import 'package:paysae/app/modules/cadastro/components/cadastro_text_field.dart';
 import 'package:paysae/app/modules/cadastro/components/titulo.dart';
 import 'package:paysae/shared/main_avatar.dart';
-import 'cadastro_controller.dart';
 
 class CadastroPage extends StatefulWidget {
+  final Function onButtonPressed;
+  CadastroPage(this.onButtonPressed);
+
   @override
   _CadastroPageState createState() => _CadastroPageState();
 }
 
-class _CadastroPageState
-    extends ModularState<CadastroPage, CadastroController> {
-  //use 'controller' variable to access controller
-
+class _CadastroPageState extends State<CadastroPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +24,10 @@ class _CadastroPageState
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Titulo('Ola, vamos\ncomecar?'),
+              Titulo(
+                'Ola, vamos\ncomecar?',
+                leftDotColor: Colors.black,
+              ),
               SizedBox(height: 20),
               Stack(
                 children: [
@@ -76,7 +77,7 @@ class _CadastroPageState
                     width: 180,
                     child: CadastroButton(
                       'Próximo',
-                      onTap: () {},
+                      onTap: widget.onButtonPressed ?? () {},
                     ),
                   ),
                 ],

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paysae/app/modules/cadastro/cadastro_module.dart';
+import 'package:paysae/app/modules/cadastro/cadastro.dart';
+import 'package:paysae/app/modules/cadastro/cadastro_completo.dart';
 import 'package:paysae/app/modules/home/components/home_button.dart';
 import 'package:paysae/app/modules/home/components/home_chimp.dart';
 import 'package:paysae/app/modules/login/login_module.dart';
@@ -63,7 +64,16 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                     ),
                     child: MainModal(
                       child: SizedBox(
-                        child: RouterOutlet(module: CadastroModule()),
+                        child: PageView(
+                          physics: NeverScrollableScrollPhysics(),
+                          controller: controller.pageController,
+                          children: [
+                            CadastroPage(() {
+                              controller.pageController.jumpToPage(1);
+                            }),
+                            CadastroCompleto(),
+                          ],
+                        ),
                         height: MediaQuery.of(context).size.height * 0.9,
                       ),
                     ),
