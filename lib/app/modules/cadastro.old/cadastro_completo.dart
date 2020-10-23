@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paysae/app/modules/cadastro/components/cadastro_button.dart';
-import 'package:paysae/app/modules/cadastro/components/cadastro_text_field.dart';
-import 'package:paysae/app/modules/cadastro/components/titulo.dart';
+import 'package:paysae/app/modules/cadastro.old/components/cadastro_button.dart';
+import 'package:paysae/app/modules/cadastro.old/components/titulo.dart';
 import 'package:paysae/shared/main_avatar.dart';
 
 class CadastroCompleto extends StatefulWidget {
