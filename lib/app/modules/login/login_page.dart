@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:paysae/app/modules/login/components/login_button.dart';
 import 'package:paysae/app/modules/login/components/login_text_field.dart';
+import 'package:paysae/shared/main_avatar.dart';
 import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -24,15 +25,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CircleAvatar(
-            backgroundColor: Colors.black,
-            child: Icon(
-              FontAwesomeIcons.userCircle,
-              size: 70,
-              color: Colors.white,
-            ),
-            radius: 50,
-          ),
+          MainAvatar(radius: 50),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 25),
             child: Column(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:paysae/app/modules/cadastro/cadastro_module.dart';
 import 'package:paysae/app/modules/home/components/home_button.dart';
 import 'package:paysae/app/modules/home/components/home_chimp.dart';
 import 'package:paysae/app/modules/login/login_module.dart';
@@ -37,7 +38,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                       bottom: MediaQuery.of(context).viewInsets.bottom,
                     ),
                     child: MainModal(
-                      // child: LoginModal(),
                       child: SizedBox(
                         child: RouterOutlet(module: LoginModule()),
                         height: MediaQuery.of(context).size.height * 0.55,
@@ -51,6 +51,26 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           HomeButton(
             label: 'Registre-se',
             icon: Icon(Icons.plus_one),
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: Colors.transparent,
+                isScrollControlled: true,
+                builder: (context) {
+                  return Padding(
+                    padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom,
+                    ),
+                    child: MainModal(
+                      child: SizedBox(
+                        child: RouterOutlet(module: CadastroModule()),
+                        height: MediaQuery.of(context).size.height * 0.9,
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
           ),
           Text('Ou', style: TextStyle(fontSize: 17, color: Colors.white)),
           HomeButton(
