@@ -47,7 +47,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           ),
           LoginButton(
             label: 'Entrar',
-            onTap: () {},
+            onTap: () {
+              Modular.to.pushReplacementNamed('/pedidos');
+            },
           ),
         ],
       ),

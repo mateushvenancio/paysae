@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paysae/app/modules/cadastro.old/components/cadastro_button.dart';
-import 'package:paysae/app/modules/cadastro.old/components/cadastro_text_field.dart';
-import 'package:paysae/app/modules/cadastro.old/components/titulo.dart';
+import 'package:paysae/app/modules/cadastro/components/cadastro_button.dart';
+import 'package:paysae/app/modules/cadastro/components/cadastro_text_field.dart';
+import 'package:paysae/app/modules/cadastro/components/titulo.dart';
 import 'package:paysae/shared/main_avatar.dart';
 import 'cadastro_controller.dart';
 
@@ -164,7 +164,12 @@ class _CadastroConcluido extends StatelessWidget {
                   Expanded(child: Container()),
                   SizedBox(
                     width: 180,
-                    child: CadastroButton('Começar'),
+                    child: CadastroButton(
+                      'Começar',
+                      onTap: () {
+                        Modular.to.pushReplacementNamed('/pedidos');
+                      },
+                    ),
                   ),
                 ],
               ),
